@@ -7,7 +7,7 @@ import net.runelite.client.config.ConfigSection;
 
 import java.awt.*;
 
-@ConfigGroup("PartyStatusBarsExtension")
+@ConfigGroup("PartyStatusBarsOverlay")
 public interface PartyStatusBarsOverlayConfig extends Config
 {
 	@ConfigItem(
@@ -160,7 +160,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = HITPOINT_SETTINGS,
 			keyName = "showHpThresholdWarning",
-			name = "Show HP Threshold Warning",
+			name = "Recolor Bar at Threshold",
 			description = "Show HP Bar in Warning Color when the value is below the Threshold",
 			position = 140
 	)
@@ -181,8 +181,8 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = HITPOINT_SETTINGS,
 			keyName = "thresholdHpColor",
-			name = "HP Threshold Warning Color",
-			description = "Color of HP Threshold Warning",
+			name = "Threshold Bar Color",
+			description = "Color of HP Bar below Threshold",
 			position = 160
 	)
 	default Color thresholdHpColor() {return new Color(194, 78, 255, 255);}
@@ -217,7 +217,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = PRAYER_SETTINGS,
 			keyName = "showPrayThresholdWarning",
-			name = "Show Prayer Threshold Warning",
+			name = "Recolor Bar at Threshold",
 			description = "Show Prayer Bar in Warning Color when the value is below the Threshold",
 			position = 240
 	)
@@ -238,7 +238,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = PRAYER_SETTINGS,
 			keyName = "thresholdPrayColor",
-			name = "Prayer Threshold Warning Color",
+			name = "Threshold Bar Color",
 			description = "Color of Prayer Threshold Warning",
 			position = 260
 	)
@@ -265,7 +265,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = SPECIAL_ATTACK_SETTINGS,
 			keyName = "showSpecThresholdWarning",
-			name = "Show Special Attack Threshold Warning",
+			name = "Recolor Bar at Threshold",
 			description = "Show Special Attack Bar in Warning Color when the value is below the Threshold",
 			position = 330
 	)
@@ -286,7 +286,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = SPECIAL_ATTACK_SETTINGS,
 			keyName = "thresholdSpecColor",
-			name = "Special Attack Threshold Warning Color",
+			name = "Threshold Bar Color",
 			description = "Color of Special Attack Threshold Warning",
 			position = 350
 	)
@@ -313,7 +313,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = RUN_ENERGY_SETTINGS,
 			keyName = "showRunThresholdWarning",
-			name = "Show Run Energy Threshold Warning",
+			name = "Recolor Bar at Threshold",
 			description = "Show Run Energy Bar in Warning Color when the value is below the Threshold",
 			position = 430
 	)
@@ -334,7 +334,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = RUN_ENERGY_SETTINGS,
 			keyName = "thresholdRunColor",
-			name = "Run Energy Threshold Warning Color",
+			name = "Threshold Bar Color",
 			description = "Color of Run Energy Threshold Warning",
 			position = 450
 	)
@@ -343,7 +343,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = HITPOINT_SETTINGS,
 			keyName = "showHpThresholdWarningBorder",
-			name = "Show Hitpoint Threshold Warning Border",
+			name = "Show Hitpoint Threshold Border",
 			description = "Show Hitpoint Bar Border when Hitpoints are below specified Threshold",
 			position = 170
 	)
@@ -355,7 +355,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = HITPOINT_SETTINGS,
 			keyName = "thresholdHpColorBorder",
-			name = "Hitpoint Threshold Warning Border Color",
+			name = "Threshold Border Color",
 			description = "Color of Hitpoint Bar Border when Hitpoints are below specified Threshold",
 			position = 180
 	)
@@ -364,7 +364,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = PRAYER_SETTINGS,
 			keyName = "showPrayThresholdWarningBorder",
-			name = "Show Prayer Threshold Warning Border",
+			name = "Show Prayer Threshold Border",
 			description = "Show Prayer Bar Border when Prayer Points are below specified Threshold",
 			position = 270
 	)
@@ -376,7 +376,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = PRAYER_SETTINGS,
 			keyName = "thresholdPrayColorBorder",
-			name = "Prayer Threshold Warning Border Color",
+			name = "Threshold Border Color",
 			description = "Color of Prayer Bar Border when Prayer Points are below specified Threshold",
 			position = 280
 	)
@@ -385,7 +385,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = SPECIAL_ATTACK_SETTINGS,
 			keyName = "showSpecThresholdWarningBorder",
-			name = "Show Special Attack Threshold Warning Border",
+			name = "Show Special Attack Threshold Border",
 			description = "Show Special Attack Energy Bar Border when Special Attack Energy is below specified Threshold",
 			position = 360
 	)
@@ -397,7 +397,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = SPECIAL_ATTACK_SETTINGS,
 			keyName = "thresholdSpecColorBorder",
-			name = "Special Attack Threshold Warning Border Color",
+			name = "Threshold Border Color",
 			description = "Color of Special Attack Energy Bar Border when Special Attack Energy is below specified Threshold",
 			position = 370
 	)
@@ -406,7 +406,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = RUN_ENERGY_SETTINGS,
 			keyName = "showRunThresholdWarningBorder",
-			name = "Show Run Energy Threshold Warning Border",
+			name = "Show Run Energy Threshold Border",
 			description = "Show Special Attack Energy Bar Border when Special Attack Energy is below specified Threshold",
 			position = 460
 	)
@@ -418,7 +418,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	@ConfigItem(
 			section = RUN_ENERGY_SETTINGS,
 			keyName = "thresholdRunColorBorder",
-			name = "Run Energy Threshold Warning Border Color",
+			name = "Threshold Border Color",
 			description = "Color of Run Energy Bar Border when Run Energy is below specified Threshold",
 			position = 470
 	)
