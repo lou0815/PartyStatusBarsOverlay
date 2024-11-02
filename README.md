@@ -1,18 +1,27 @@
 # PartyStatusBarsOverlay
-A fully customizable Overlay that renders the Party Members from Runelites PartyService in your game Screen.
+A configurable Overlay that renders the Party Members from Runelites PartyService in your game Screen.\
+Helps you keep track of your Friends when doing Activities together.
 
-The Party Service must be active and you have to be in a Party:
+Bars/Characternames can be shown/hidden as needed, colors as well as threshold values for coloring the bars and/or adding a border can be specified.
 
-![img.png](img.png)
+Hitpoint, Prayer and Run Energy Threshold adds Highlighting when the resource is below the specified value.\
+Special Attack Energy Threshold adds Highlighting when the Special Attack Energy is above the specified value.
 
-Join a party:
+![Overlay_Example.png](Overlay_Example.png)
 
-![img_2.png](img_2.png)
+<div style="display: flex; gap: 20px;">
+  <div style="flex: 1;">
+    You have to be a member of a Party:
 
-Overlay:
+![PartyService.png](PartyService.png)
 
-![img_3.png](img_3.png)
-
+![Party.png](Party.png)
+  </div>
+  <div style="flex: 1;">
 Settings:
 
-![img_4.png](img_4.png)
+![Settings.png](Settings.png)
+  </div>
+</div>
+
+
