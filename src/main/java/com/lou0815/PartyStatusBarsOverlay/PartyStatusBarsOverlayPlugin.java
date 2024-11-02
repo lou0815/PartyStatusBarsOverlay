@@ -60,12 +60,14 @@ public class PartyStatusBarsOverlayPlugin extends Plugin
 	@Override
 	protected void startUp() throws Exception
 	{
+		log.info("Party Status Bars Overlay started");
 		overlayManager.add(partyStatusBarsOverlay);
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
+		log.info("Party Status Bars Overlay stopped");
 		overlayManager.remove(partyStatusBarsOverlay);
 	}
 

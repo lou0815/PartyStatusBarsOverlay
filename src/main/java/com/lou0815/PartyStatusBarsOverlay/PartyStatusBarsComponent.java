@@ -35,7 +35,7 @@ public class PartyStatusBarsComponent extends ProgressBarComponent {
         setLabelDisplayMode(LabelDisplayMode.TEXT_ONLY);
         switch (type) {
             case HP:
-                setBackgroundColor(config.missingHpColor());
+                setBackgroundColor(config.backgroundHpColor());
                 if (currValue > maxValue) {
                     setForegroundColor(config.overHpColor());
                 } else if(currValue <= config.thresholdHp() && config.showHpThresholdWarning()){
@@ -49,7 +49,7 @@ public class PartyStatusBarsComponent extends ProgressBarComponent {
                 }
                 break;
             case PRAY:
-                setBackgroundColor(config.missingPrayColor());
+                setBackgroundColor(config.backgroundPrayColor());
                 if (currValue > maxValue) {
                     setForegroundColor(config.overPrayColor());
                 } else if(currValue <= config.thresholdPray() && config.showPrayThresholdWarning()){
@@ -63,20 +63,21 @@ public class PartyStatusBarsComponent extends ProgressBarComponent {
                 }
                 break;
             case SPEC:
-                setBackgroundColor(config.missingSpecColor());
-                if (currValue <= config.thresholdSpec() && config.showSpecThresholdWarning()) {
+                // if we are on the spec Bar, we reverse the if statement since spec makes more sense to Warn when above a value
+                setBackgroundColor(config.backgroundSpecColor());
+                if (currValue >= config.thresholdSpec() && config.showSpecThresholdWarning()) {
                     setForegroundColor(config.thresholdSpecColor());
                 } else {
                     setForegroundColor(config.specColor());
                 }
-                if(currValue <= config.thresholdSpec() && config.showSpecThresholdWarningBorder()){
+                if(currValue >= config.thresholdSpec() && config.showSpecThresholdWarningBorder()){
                     borderColor = config.thresholdSpecColorBorder();
                     drawBorder = true;
                 }
                 break;
             case RUN:
-                setBackgroundColor(config.missingRunColor());
-                if (currValue <= config.thresholdPray() && config.showPrayThresholdWarning()) {
+                setBackgroundColor(config.backgroundRunColor());
+                if (currValue <= config.thresholdRun() && config.showRunThresholdWarning()) {
                     setForegroundColor(config.thresholdRunColor());
                 } else {
                     setForegroundColor(config.runColor());

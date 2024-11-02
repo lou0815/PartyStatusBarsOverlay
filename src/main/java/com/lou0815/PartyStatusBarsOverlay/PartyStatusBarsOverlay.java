@@ -31,12 +31,12 @@ public class PartyStatusBarsOverlay extends OverlayPanel {
         int size = playerStatsMap.values().size();
         for (PlayerStats playerStats : playerStatsMap.values()) {
             i += 1;
-            drawPlayerBox(graphics, playerStats, i != size); // if i == size we disable the spacer so the last entry is not followed by a spacer
+            drawPlayerBox(playerStats, i != size); // if i == size we disable the spacer so the last entry is not followed by a spacer
         }
         return super.render(graphics);
     }
 
-    private void drawPlayerBox(Graphics2D graphics, PlayerStats playerStats, boolean enableSpacer) {
+    private void drawPlayerBox(PlayerStats playerStats, boolean enableSpacer) {
         getPanelComponent().setGap(new Point(0, config.barGap()));
         if (config.showCharName()) {
             panelComponent.getChildren().add(LineComponent.builder()
