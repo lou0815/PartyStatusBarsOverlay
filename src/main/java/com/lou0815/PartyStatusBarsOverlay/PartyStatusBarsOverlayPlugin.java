@@ -83,13 +83,14 @@ public class PartyStatusBarsOverlayPlugin extends Plugin
 				partyService.getMembers().stream().noneMatch(member -> String.valueOf(member.getMemberId()).equals(id))
 		);
 
+		long localMemberId = partyService.getLocalMember().getMemberId();
 		for (PartyMember member : partyService.getMembers()) {
-			Long memberId = member.getMemberId();
+			long memberId = member.getMemberId();
 			PlayerStats existingStats = playerStatsMap.get(memberId);
 
 			// adding a user to the playerStatsMap if not already exists and name not <unknown>
-			if (existingStats == null && !member.getDisplayName().equals("<unknown>")) {
-
+			// If the "showSelf" flag is disabled, then add the user to the playerStatsMap if it's not the local player
+			if (existingStats == null && !member.getDisplayName().equals("<unknown>") && (config.showSelf() || memberId != localMemberId)) {
 				playerStatsMap.put(memberId, new PlayerStats(
 						memberId,
 						member.getDisplayName(),
