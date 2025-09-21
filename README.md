@@ -1,5 +1,7 @@
 # PartyStatusBarsOverlay
 
+[![Plugin Installs](http://img.shields.io/endpoint?url=https://api.runelite.net/pluginhub/shields/installs/plugin/party-status-bars-overlay)](https://runelite.net/plugin-hub/lo0815) [![Plugin Rank](http://img.shields.io/endpoint?url=https://api.runelite.net/pluginhub/shields/rank/plugin/party-status-bars-overlay)](https://runelite.net/plugin-hub)
+
 A configurable Overlay that renders the Party Members from Runelites PartyService in your game Screen.\
 Helps you keep track of your Friends when doing Activities together.
 
@@ -25,4 +27,3 @@ Settings:
   </div>
 </div>
 
-[![Plugin Installs](http://img.shields.io/endpoint?url=https://api.runelite.net/pluginhub/shields/installs/plugin/party-status-bars-overlay)](https://runelite.net/plugin-hub/lo0815) [![Plugin Rank](http://img.shields.io/endpoint?url=https://api.runelite.net/pluginhub/shields/rank/plugin/party-status-bars-overlay)](https://runelite.net/plugin-hub)
