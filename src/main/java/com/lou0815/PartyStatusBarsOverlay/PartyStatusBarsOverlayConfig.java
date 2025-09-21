@@ -33,6 +33,17 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	}
 
 	@ConfigItem(
+			keyName = "showSelf",
+			name = "Show Self",
+			description = "Show yourself in the Overlay",
+			position = 21
+	)
+	default boolean showSelf()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 			keyName = "barGap",
 			name = "Gap Between Bars",
 			description = "How far apart the bars should be",
