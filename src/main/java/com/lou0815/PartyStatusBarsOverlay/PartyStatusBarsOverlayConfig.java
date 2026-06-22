@@ -1,9 +1,6 @@
 package com.lou0815.PartyStatusBarsOverlay;
 
-import net.runelite.client.config.Config;
-import net.runelite.client.config.ConfigGroup;
-import net.runelite.client.config.ConfigItem;
-import net.runelite.client.config.ConfigSection;
+import net.runelite.client.config.*;
 
 import java.awt.*;
 
@@ -141,6 +138,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 		return false;
 	}
 
+	@Alpha
 	@ConfigItem(
 			section = HITPOINT_SETTINGS,
 			keyName = "hpColor",
@@ -150,6 +148,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default Color hpColor() {return new Color(50, 255, 50, 125);}
 
+	@Alpha
 	@ConfigItem(
 			section = HITPOINT_SETTINGS,
 			keyName = "overHpColor",
@@ -159,6 +158,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default Color overHpColor() {return new Color(50, 255, 50, 175);}
 
+	@Alpha
 	@ConfigItem(
 			section = HITPOINT_SETTINGS,
 			keyName = "backgroundHpColor",
@@ -189,6 +189,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default int thresholdHp() {return 10;}
 
+	@Alpha
 	@ConfigItem(
 			section = HITPOINT_SETTINGS,
 			keyName = "thresholdHpColor",
@@ -198,6 +199,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default Color thresholdHpColor() {return new Color(194, 78, 255, 255);}
 
+	@Alpha
 	@ConfigItem(
 			section = PRAYER_SETTINGS,
 			keyName = "prayColor",
@@ -207,6 +209,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default Color prayColor() {return new Color(50, 200, 200, 175);}
 
+	@Alpha
 	@ConfigItem(
 			section = PRAYER_SETTINGS,
 			keyName = "overPrayColor",
@@ -216,6 +219,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default Color overPrayColor() {return new Color(50, 255, 255, 175);}
 
+	@Alpha
 	@ConfigItem(
 			section = PRAYER_SETTINGS,
 			keyName = "backgroundPrayColor",
@@ -246,6 +250,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default int thresholdPray() {return 10;}
 
+	@Alpha
 	@ConfigItem(
 			section = PRAYER_SETTINGS,
 			keyName = "thresholdPrayColor",
@@ -255,6 +260,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default Color thresholdPrayColor() {return new Color(194, 78, 255, 255);}
 
+	@Alpha
 	@ConfigItem(
 			section = SPECIAL_ATTACK_SETTINGS,
 			keyName = "specColor",
@@ -264,6 +270,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default Color specColor() {return new Color(255, 143, 51, 175);}
 
+	@Alpha
 	@ConfigItem(
 			section = SPECIAL_ATTACK_SETTINGS,
 			keyName = "backgroundSpecColor",
@@ -294,6 +301,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default int thresholdSpec() {return 100;}
 
+	@Alpha
 	@ConfigItem(
 			section = SPECIAL_ATTACK_SETTINGS,
 			keyName = "thresholdSpecColor",
@@ -303,6 +311,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default Color thresholdSpecColor() {return new Color(194, 78, 255, 255);}
 
+	@Alpha
 	@ConfigItem(
 			section = RUN_ENERGY_SETTINGS,
 			keyName = "runColor",
@@ -312,6 +321,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default Color runColor() {return new Color(255, 233, 78, 150);}
 
+	@Alpha
 	@ConfigItem(
 			section = RUN_ENERGY_SETTINGS,
 			keyName = "backgroundRunColor",
@@ -342,6 +352,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 	)
 	default int thresholdRun() {return 10;}
 
+	@Alpha
 	@ConfigItem(
 			section = RUN_ENERGY_SETTINGS,
 			keyName = "thresholdRunColor",
@@ -363,6 +374,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 		return false;
 	}
 
+	@Alpha
 	@ConfigItem(
 			section = HITPOINT_SETTINGS,
 			keyName = "thresholdHpColorBorder",
@@ -384,6 +396,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 		return false;
 	}
 
+	@Alpha
 	@ConfigItem(
 			section = PRAYER_SETTINGS,
 			keyName = "thresholdPrayColorBorder",
@@ -405,6 +418,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 		return false;
 	}
 
+	@Alpha
 	@ConfigItem(
 			section = SPECIAL_ATTACK_SETTINGS,
 			keyName = "thresholdSpecColorBorder",
@@ -426,6 +440,7 @@ public interface PartyStatusBarsOverlayConfig extends Config
 		return false;
 	}
 
+	@Alpha
 	@ConfigItem(
 			section = RUN_ENERGY_SETTINGS,
 			keyName = "thresholdRunColorBorder",
