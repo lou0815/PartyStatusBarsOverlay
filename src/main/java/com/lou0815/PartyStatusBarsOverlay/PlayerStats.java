@@ -1,7 +1,8 @@
 package com.lou0815.PartyStatusBarsOverlay;
 
 import lombok.Getter;
-import net.runelite.client.plugins.party.data.PartyData;
+import net.runelite.api.Skill;
+import net.runelite.client.party.PartyMember;
 
 // PlayerStats Class for convenient Access to all Stats
 public class PlayerStats {
@@ -9,35 +10,35 @@ public class PlayerStats {
     private final long playerId;
     @Getter
     private final String playerName;
-    private PartyData partyData;
+    private final PartyMember partyMember;
 
-    public PlayerStats(Long playerId, String playerName, PartyData partyData) {
+    public PlayerStats(Long playerId, String playerName, PartyMember partyMember) {
         this.playerId = playerId;
         this.playerName = playerName;
-        this.partyData = partyData;
+        this.partyMember = partyMember;
     }
 
     public int getMaxHP() {
-        return partyData.getMaxHitpoints();
+        return partyMember.getStatBase(Skill.HITPOINTS);
     }
 
     public int getCurrHP() {
-        return partyData.getHitpoints();
+        return partyMember.getStatBoost(Skill.HITPOINTS);
     }
 
     public int getMaxPray() {
-        return partyData.getMaxPrayer();
+        return partyMember.getStatBase(Skill.PRAYER);
     }
 
     public int getCurrPray() {
-        return partyData.getPrayer();
+        return partyMember.getStatBoost(Skill.PRAYER);
     }
 
     public int getCurrSpec() {
-        return partyData.getSpecEnergy();
+        return partyMember.getSpecEnergy();
     }
 
     public int getCurrRun() {
-        return partyData.getRunEnergy();
+        return partyMember.getRunEnergy();
     }
 }

@@ -4,19 +4,19 @@ import com.google.inject.Provides;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import net.runelite.api.Skill;
 import net.runelite.api.events.GameTick;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.party.PartyDataService;
+import net.runelite.client.party.PartyDataType;
 import net.runelite.client.party.PartyMember;
 import net.runelite.client.party.PartyService;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.party.PartyPlugin;
-import net.runelite.client.plugins.party.PartyPluginService;
 import net.runelite.client.ui.overlay.OverlayManager;
 
 import java.util.HashMap;
@@ -32,9 +32,8 @@ import java.util.Map;
 @PluginDependency(PartyPlugin.class)
 public class PartyStatusBarsOverlayPlugin extends Plugin
 {
-	@Getter(AccessLevel.PACKAGE)
 	@Inject
-	private PartyPluginService partyPluginService;
+	private PartyDataService partyDataService;
 
 	@Inject
 	private PartyService partyService;
@@ -61,6 +60,8 @@ public class PartyStatusBarsOverlayPlugin extends Plugin
 	protected void startUp() throws Exception
 	{
 		log.info("Party Status Bars Overlay started");
+		partyDataService.subscribe(this, PartyDataType.ENERGY, PartyDataType.SPEC);
+		partyDataService.subscribe(this, Skill.HITPOINTS, Skill.PRAYER);
 		overlayManager.add(partyStatusBarsOverlay);
 	}
 
@@ -68,6 +69,8 @@ public class PartyStatusBarsOverlayPlugin extends Plugin
 	protected void shutDown() throws Exception
 	{
 		log.info("Party Status Bars Overlay stopped");
+		partyDataService.unsubscribe(this, PartyDataType.values());
+		partyDataService.unsubscribe(this, Skill.values());
 		overlayManager.remove(partyStatusBarsOverlay);
 	}
 
@@ -80,10 +83,15 @@ public class PartyStatusBarsOverlayPlugin extends Plugin
 	public void refreshPlayerStatsMap() {
 		// Remove players who are no longer in the party
 		playerStatsMap.keySet().removeIf(id ->
-				partyService.getMembers().stream().noneMatch(member -> String.valueOf(member.getMemberId()).equals(id))
+				partyService.getMembers().stream().noneMatch(member -> member.getMemberId() == id)
 		);
 
-		long localMemberId = partyService.getLocalMember().getMemberId();
+		PartyMember localMember = partyService.getLocalMember();
+		if (localMember == null) {
+			return;
+		}
+
+		long localMemberId = localMember.getMemberId();
 		for (PartyMember member : partyService.getMembers()) {
 			long memberId = member.getMemberId();
 			PlayerStats existingStats = playerStatsMap.get(memberId);
@@ -94,7 +102,7 @@ public class PartyStatusBarsOverlayPlugin extends Plugin
 				playerStatsMap.put(memberId, new PlayerStats(
 						memberId,
 						member.getDisplayName(),
-						partyPluginService.getPartyData(memberId)
+						member
 				));
 			}
 		}
