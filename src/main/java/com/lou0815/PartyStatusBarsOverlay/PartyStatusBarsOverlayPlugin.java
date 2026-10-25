@@ -86,7 +86,12 @@ public class PartyStatusBarsOverlayPlugin extends Plugin
 				partyService.getMembers().stream().noneMatch(member -> member.getMemberId() == id)
 		);
 
-		long localMemberId = partyService.getLocalMember().getMemberId();
+		PartyMember localMember = partyService.getLocalMember();
+		if (localMember == null) {
+			return;
+		}
+
+		long localMemberId = localMember.getMemberId();
 		for (PartyMember member : partyService.getMembers()) {
 			long memberId = member.getMemberId();
 			PlayerStats existingStats = playerStatsMap.get(memberId);
